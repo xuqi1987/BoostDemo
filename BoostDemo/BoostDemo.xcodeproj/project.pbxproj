@@ -241,6 +241,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6WA9JH4L3;
+				HEADER_SEARCH_PATHS = /Users/xuqi/Documents/boost_1_69_0;
+				LIBRARY_SEARCH_PATHS = /Users/xuqi/Documents/boost_1_69_0/stage/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -250,6 +252,8 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R6WA9JH4L3;
+				HEADER_SEARCH_PATHS = /Users/xuqi/Documents/boost_1_69_0;
+				LIBRARY_SEARCH_PATHS = /Users/xuqi/Documents/boost_1_69_0/stage/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

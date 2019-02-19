@@ -16,3 +16,12 @@ INCLUDE=I/Users/chrono/boost/ 	#Boost库安装在用户主目录
 STDLIB= -stdlib=libc++  			#Linux无需此FLAG
 ```
 
+XCode配置：
+
+![](images/1.png)
+
+
+#### Timer库
++ timer
++ progress_display
++ 
