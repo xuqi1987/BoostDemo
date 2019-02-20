@@ -21,7 +21,7 @@ using namespace boost::gregorian;
 #include <boost/date_time/posix_time/posix_time.hpp>
 using namespace boost::posix_time;
 
-
+#include <boost/smart_ptr.hpp>
 
 using namespace std;
 using namespace boost;
@@ -44,7 +44,7 @@ void dateDemo()
 {
     // insert code here...
     // 使用timer显示时间
-
+    
     timer t;
     LOG("max (h):" << t.elapsed_max()/3600 );
     LOG("min (s):" << t.elapsed_min());
@@ -149,9 +149,57 @@ void timeDemo()
     
 }
 
+void delete_string(string * s)
+{
+    cout << endl;
+    cout << "delete string:" << *s << endl;
+}
+
+void smartDemo()
+{
+    // 删除的时候回调 delete_string (删除器)
+    boost::shared_ptr<string> sp_t(new string("hello"),delete_string);
+    boost::shared_ptr<string> sp_t2 = boost::make_shared<string>("hello2");
+    
+    cout << *sp_t << endl;
+    cout << *sp_t2 << endl;
+    
+    boost::shared_ptr<vector<int> > sp_v(new vector<int>(3,2));
+    boost::shared_ptr<vector<int> > sp_v2 = boost::make_shared<vector<int> >(3,3);
+    
+    for (auto & x : *sp_v)
+    {
+        cout << x << " ";
+    }
+    cout << endl;
+    vector<boost::shared_ptr<int> > v(3);
+    
+    for (vector<boost::shared_ptr<int> >::iterator it = v.begin(); it != v.end(); ++it)
+    {
+        (*it) = boost::make_shared<int>(1);
+    }
+    
+    for (vector<boost::shared_ptr<int> >::iterator it = v.begin(); it != v.end(); ++it)
+    {
+        cout << *(*it) << " ";
+    }
+    
+    for (auto & x : v)
+    {
+        x = boost::make_shared<int>(3);
+    }
+    cout << endl;
+    for (auto & x : v) // 遍历每一元素
+    {
+        cout << *x <<" ";
+    }
+    
+}
+
 int main(int argc, const char * argv[])
 {
     //dateDemo();
-    timeDemo();
+    //timeDemo();
+    smartDemo();
     return 0;
 }
