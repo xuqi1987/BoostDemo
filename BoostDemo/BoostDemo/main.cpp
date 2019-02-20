@@ -5,20 +5,27 @@
 //  Created by xuqi on 2019/2/19.
 //  Copyright © 2019 xuqi. All rights reserved.
 //
-#include <boost/timer.hpp>
-#include <boost/progress.hpp>
-
-#define BOOST_DATE_TIME_SOURCE
-#include <boost/date_time/gregorian/gregorian.hpp>
 
 #include <iostream>
 #include <string>
 #include <vector>
 #include <fstream>
 
+#include <boost/timer.hpp>
+#include <boost/progress.hpp>
+
+#define BOOST_DATE_TIME_SOURCE
+#include <boost/date_time/gregorian/gregorian.hpp>
+using namespace boost::gregorian;
+
+#include <boost/date_time/posix_time/posix_time.hpp>
+using namespace boost::posix_time;
+
+
+
 using namespace std;
 using namespace boost;
-using namespace boost::gregorian;
+
 
 #define LOG(log) cout<<log<<endl;
 
@@ -110,9 +117,41 @@ void dateDemo()
     cout << endl;
 }
 
-int main(int argc, const char * argv[]) {
+void timeDemo()
+{
+    hours h(1);
+    minutes m(20);
+    seconds s(30);
+    milliseconds ms(100);
     
+    time_duration td = h + m + s + ms;
+    
+    time_duration td1 = duration_from_string("1:30:30:001");
+    cout << to_simple_string(td1 - td) << endl;
+    cout << to_iso_string(td1 - td) << endl;
+    
+    ptime p(date(2019,2,20),hours(19)+minutes(42)+seconds(40));
+    //ptime p1 = time_from_string("2019-2-20 19:41:00");
+    
+    ptime p2 = second_clock::local_time();
+    ptime p3 = microsec_clock::universal_time();
+    
+    cout << p << endl << p2 << endl << p3 << endl;
+    
+    cout << "Start" << endl;
+    
+    // 打印从19:42:40秒开始的每一分钟
+    for (time_iterator t_iter(p,minutes(1)); t_iter < p2; ++t_iter)
+    {
+        cout << *t_iter << endl;
+    }
+    cout << "End" << endl;
+    
+}
 
-    dateDemo();
+int main(int argc, const char * argv[])
+{
+    //dateDemo();
+    timeDemo();
     return 0;
 }

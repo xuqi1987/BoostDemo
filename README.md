@@ -22,6 +22,35 @@ XCode配置：
 
 
 #### Timer库
+
 + timer
 + progress_display
-+ 
+
+###### 处理日期
+
+```
+#define BOOST_DATE_TIME_SOURCE
+#include <boost/date_time/gregorian/gregorian.hpp>
+using namespace boost::gregorian;
+
+```
++ date
++ date_period
+
+###### 处理时间
+
+```
+#include <boost/date_time/posix_time/posix_time.hpp>
+using namespace boost::posix_time;
+```
++ hours
++ minutes
++ seconds
++ milliseconds
++ time_duration
++ ptime
++ time_period
+
+#### 内存管理
+
+
