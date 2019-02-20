@@ -1,5 +1,5 @@
 ## BoostDemo
-#### 下载编译使用
+#### 1. 下载编译使用
 
  [下载地址](https://dl.bintray.com/boostorg/release/1.69.0/source/)
  
@@ -21,7 +21,7 @@ XCode配置：
 ![](images/1.png)
 
 
-#### Timer库
+#### 2. Timer库
 
 + timer
 + progress_display
@@ -51,7 +51,7 @@ using namespace boost::posix_time;
 + ptime
 + time_period
 
-#### 内存管理
+#### 3. 内存管理
 ##### smart_ptr库
 + Raii机制 （资源获取就是初始化）
 + 智能指针
