@@ -80,14 +80,41 @@ auto_ptr<ClassA> a(new ClassA);
 + scoped_array (不推荐使用)
 + share_ptr (引用计数，可以赋值，可以放入容器) `make_share 不使用new 创建对象` 
 + share_array
-+ weak_ptr
-+ intrusive_ptr
++ weak_ptr (打破循环引用)
++ intrusive_ptr (不推荐使用)
 
 ##### C++11
 
 + unique_ptr (可以比较，不允许赋值，可以放入容器)
 + share_ptr
 + weak_ptr
+
+#### pool
+
++ pool
++ object_pool
++ singleton_pool
++ pool_alloc
+
+### 实用工具
+
++ noncopyable
+
++ typeof
+	
+	**C++ 11**
+	- auto
+	- decltype
+	
+	**Boost**
+	
+	```
+	#include<boost/typeof/typeof.hpp>
+	
+	```
+	
+	- BOOST_TYPEOF
+	- BOOST_AUTO
 
 
 

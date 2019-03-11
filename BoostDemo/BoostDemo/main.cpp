@@ -23,6 +23,8 @@ using namespace boost::posix_time;
 
 #include <boost/smart_ptr.hpp>
 
+#include <boost/typeof/typeof.hpp>
+
 using namespace std;
 using namespace boost;
 
@@ -196,10 +198,26 @@ void smartDemo()
     
 }
 
+void autoDemo()
+{
+    // boost
+    BOOST_TYPEOF(1.0*10) fNum = 1.0 * 10;
+    BOOST_AUTO(iNum, 1);
+    
+    cout << fNum << iNum<< endl;
+    
+    // c++ 11
+    auto fNumber = 1.0*10;
+    decltype(1) iNumber = 1;
+    cout << fNumber << iNumber << endl;
+    
+}
+
 int main(int argc, const char * argv[])
 {
     //dateDemo();
     //timeDemo();
-    smartDemo();
+    //smartDemo();
+    autoDemo();
     return 0;
 }
